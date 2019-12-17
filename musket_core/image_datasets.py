@@ -617,7 +617,17 @@ class AbstractImagePathDataSet(DataSet):
         self.dim=3 
 
     def addPath(self, imagePath):
-        p0 = os.path.join(context.get_current_project_data_path(), imagePath)
+        current_project_data_path = context.get_current_project_data_path()
+                
+        print("addPath context path: " + current_project_data_path)
+        print("addPath image_path: " + imagePath)
+        
+        
+        
+        p0 = os.path.join(current_project_data_path, imagePath)
+        
+        print("p0: " + p0)
+        
         if not os.path.exists(p0):
             p0 = imagePath
         ld0 = os.listdir(p0)
